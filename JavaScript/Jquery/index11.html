@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        div, ul, li{
+            border: 2px solid gray;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+        .red_border {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        div#root
+        <div>
+            div
+        </div>
+        <div>
+            div
+            <ul>
+                ul
+                <li>li</li>
+                <li>li</li>
+                <li>li</li>
+                <li>li</li>
+            </ul>
+        </div>
+        <div>
+            div
+        </div>
+    </div> 
+
+    <script>
+        $('#root').addClass('red_border').removeClass('red_border')
+        .children().addClass('red_border').removeClass('red_border')
+        .first().addClass('red_border').removeClass('red_border')
+        .next().addClass('red_border').removeClass('red_border')
+        .prev().addClass('red_border').removeClass('red_border')
+        .parent().addClass('red_border').removeClass('red_border')
+        .find('ul').addClass('red_border').removeClass('red_border')
+        .find('li').addClass('red_border').removeClass('red_border')
+        .first().addClass('red_border').removeClass('red_border')
+        .end().addClass('red_border').removeClass('red_border')
+        .end().end().addClass('red_border').removeClass('red_border')
+        .children().addClass('red_border').removeClass('red_border')
+        .filter(':first').addClass('red_border').removeClass('red_border')
+        .nextAll().addClass('red_border').removeClass('red_border')
+        .find('ul').addClass('red_border').removeClass('red_border')
+        .closest('div').addClass('red_border')
+        
+    </script>
+</body>
+</html>

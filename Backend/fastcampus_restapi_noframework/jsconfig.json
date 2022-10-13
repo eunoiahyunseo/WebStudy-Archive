@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*", "src/test.jssrc/deep/node_modules/animal.jsl.js"]
+}

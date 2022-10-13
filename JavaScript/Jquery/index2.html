@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        function addEvent(target, eventType, eventHandler, useCapture) {
+            if(target.addEventListener) { // W3C DOM
+                target.addEventListener(eventType, eventHandler, useCapture ? useCapture : false);
+            } else if (target.attachEvent) {
+                const r = target.attachEvent("on" + eventType, eventHandler);
+            }
+        }
+
+        function clickHandler(event) {
+            const nav = document.getElementById('navigation');
+            for(let i = 0; i < nav.childNodes.length; i++) {
+                const child = nav.childNodes[i];
+                if(child.nodeType === 3) {
+                    continue;
+                }
+                child.className = '';
+                event.target.className = 'selected';
+            }
+        }
+
+        addEvent(window, 'load', function(eventObj) {
+            const nav = document.getElementById('navigation');
+            for(let i = 0; i < nav.childNodes.length; i++) {
+                const child = nav.childNodes[i];
+                if(child.nodeType === 3) {
+                    continue;
+                }
+                addEvent(child, 'click', clickHandler)
+            }
+        })
+    </script>
+    <style type="text/css">
+        #navigation li {
+            list-style: none;
+            float: left;
+            padding: 5px;
+        }
+
+        #navigation {
+            cursor: pointer;
+        }
+
+        #navigation .selected {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul id="navigation">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>javascript</li>
+        <li class="selected">jQuery</li>
+        <li>PHP</li>
+        <li>mysql</li>
+    </ul>
+
+    <button id="button">button</button>
+    <script>
+        const btn = document.getElementById('button');
+        btn.addEventListener('click', async (event) => {
+            
+            const value = await new Promise((resolve, reject) => {
+                event.target.addEventListener('click', (event) => {
+                    console.log('hello');
+                    resolve('this is promise value');
+                })
+            })
+            console.log(value)
+            
+        })
+    </script>
+    
+    
+
+</body>
+</html>

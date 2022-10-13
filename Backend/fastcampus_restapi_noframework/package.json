@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "lint": "eslint src/**/*",
+    "start": "nodemon src/main.js"
+  },
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "engines": {
+    "node": ">=10.6.0"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "decamelize": "~3.1.0",
+    "jsdoc": "^3.6.7",
+    "nodemon": "^2.0.12",
+    "update": "^0.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  }
+}

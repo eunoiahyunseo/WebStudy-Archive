@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+<!--prettier-ignore-->
+{% block content %}
+<h1>GIF 채팅방</h1>
+<fieldset>
+  <legend>채팅방 목록</legend>
+
+  <table>
+    <thead>
+      <tr>
+        <th>방 제목</th>
+        <th>종류</th>
+        <th>허용 인원</th>
+        <th>방장</th>
+      </tr>
+
+      <tr></tr>
+    </thead>
+
+    <tbody>
+      <!--prettier-ignore-->
+      {% for room in rooms %}
+      <tr data-id="{{room._id}}">
+        <td>{{room.title}}</td>
+        <td>{{'비밀방' if room.password else '공개방'}}</td>
+        <td>{{room.max}}</td>
+        <td style="color: {{room.owner}}">{{room.owner}}</td>
+        <td>
+          <button
+            data-password="{{'true' if room.password else 'false'}}"
+            data-id="{{room._id}}"
+            class="join-btn"
+          >
+            입장
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="error-message">{{error}}</div>
+  <a href="/room">채팅방 생성</a>
+</fieldset>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io.connect("http://localhost:8005/room", { path: "/socket.io" });
+
+  socket.on("newRoom", (data) => {
+    // 새 방 이벤트 시 새 방 생성
+    const tr = document.createElement("tr");
+    let td = document.createElement("td");
+    td.textContent = data.title;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.textContent = data.password ? "비밀방" : "공개방";
+    tr.appendChild(td);
+    td = document.createElement("td");
+    td.textContent = data.max;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    /**
+     * 이렇게 style을 data.owner로 하는 이유는 data.owner는 결국 hex고 이는 색상을 나타내기 때문
+     * 사용자마다 고유한 색상을 갖도록 해주는 것이다. 사용자마다의 구분을 해주기 위함이다.
+     */
+    td.style.color = data.owner;
+    td.textContent = data.owner;
+    tr.appendChild(td);
+    td = document.createElement("td");
+    const button = document.createElement("button");
+    button.textContent = "입장";
+    button.dataset.password = data.password ? "true" : "false";
+    button.dataset.id = data._id;
+    button.addEventListener("click", addBtnEvent);
+    td.appendChild(button);
+    tr.appendChild(td);
+    tr.dataset.id = data._id;
+    document.querySelector("table tbody").appendChild(tr);
+  });
+
+  socket.on("removeRoom", (data) => {
+    // 방 제거 이벤트 시 id가 일치하는 방 제거
+    document.querySelector("tbody tr").forEach((tr) => {
+      if (tr.dataset.id === data) {
+        tr.parentNode.removeChild(tr);
+      }
+    });
+    location.reload();
+  });
+
+  const addBtnEvent = (e) => {
+    // 방 입장 클릭 시
+    if (e.target.dataset.password === "true") {
+      const password = prompt("비밀번호를 입력하세요");
+      location.href = "/room/" + e.target.dataset.id + "?password=" + password; // 비밀 방 이면
+    } else {
+      location.href = "/room/" + e.target.dataset.id; // 공개 방 이면
+    }
+  };
+
+  document.querySelectorAll(".join-btn").forEach((btn) => {
+    btn.addEventListener("click", addBtnEvent);
+  });
+</script>
+{% endblock %}
+
+<!--prettier-ignore-->
+{% block script %}
+<script>
+  window.onload = () => {
+    if (new URL(location.href).searchParams.get("error")) {
+      alert(new URL(location.href).searchParams.get("error"));
+    }
+  };
+</script>
+{%endblock %}

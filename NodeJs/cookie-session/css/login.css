@@ -1,0 +1,63 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#FormContainer {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;   
+    border: 2px solid black;
+    padding: 18px 10px;
+    border-radius: 20px;
+}
+
+#FormContainer h1 {
+    text-align: center;
+}
+
+form .formData {
+    display: flex;
+    justify-content: space-between;
+    height: 29px;
+}
+
+form button[type="submit"] {
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+    height: 25px;
+    border-radius: 20px;
+}
+
+form button[type="submit"]:hover {
+    background-color: orange;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.formData input {
+    border: none;
+    width: 60%;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+.formData input:focus {
+    border: 1px solid orange;
+    outline: 1px solid orange;
+}

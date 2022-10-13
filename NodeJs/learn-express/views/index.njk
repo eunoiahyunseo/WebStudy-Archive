@@ -1,0 +1,28 @@
+{% set node = 'Node.js' %}
+{% set js = 'JavaScript' %}
+{% set isLoggedIn = true %}
+
+<h1>{{title}}</h1>
+{% include "header.njk" %}
+<p>Welcome to {{title}}</p>
+<button class="{{title}}" type="submit">Submit</button>
+<input placeholder="{{title}} Practice"/>
+
+<p>{{node}} and {{js}}</p>
+<p>{{'<strong>Escape</strong>'}}</p>
+<p>{{'<strong>Escape</strong>' | safe}}</p>
+
+<ul>
+    {% set fruits = ['apple', 'pear', 'orange', 'banana', 'peach'] %}
+    {% for item in fruits %}
+    <li>{{loop.index}} 번째 {{item}}</li>
+    {% endfor %}
+</ul>
+
+{% if isLoggedIn %}
+<div>로그인 되었습니다.</div>
+{% else %}
+<div>로그인이 필요합니다.</div>
+{% endif %}
+
+{% include "footer.njk" %}

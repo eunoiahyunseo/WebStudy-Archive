@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.img_box {
+  display: block;
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+}
+
+.img_box > img {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1.5s;
+  cursor: pointer;
+}
+
+.img_box:hover > img {
+  transform: translate(-50%, -50%) scale(1.2);
+}

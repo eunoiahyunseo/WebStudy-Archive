@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            border-bottom: 1px solid gray;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .content nav {
+            border-right: 1px solid gray;
+        }
+
+        .content aside {
+            border-left: 1px solid gray;
+        }
+
+        nav {
+            padding: 10px;
+        }
+
+        main {
+            padding: 10px;
+            text-align: justify;
+        }
+
+        aside {
+            padding :10px;
+        }
+
+        footer {
+            border-top: 1px solid gray;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media(max-width: 500px) {
+            .content {
+                flex-direction: column;
+            }
+            .content nav, .content aside {
+                border: none;
+                flex-basis: auto;
+            }
+
+            main {
+                order: 0;
+            }
+
+            nav {
+                order: 1;
+                text-align: center;
+            }
+
+            aside {
+                order: 2;
+                display: none;
+            }
+
+            nav, aside {
+                flex-basis: 150px;
+                flex-shrink: 0;
+            }
+
+            main {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header>
+            <h1>생활코딩</h1>
+        </header>
+    
+        <section class="content">
+            <nav>
+                <ul>
+                    <li>html</li>
+                    <li>css</li>
+                    <li>javascript</li>
+                </ul>
+            </nav>
+
+            <main>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum labore ducimus saepe unde dolorum iusto quam. Ipsa eos amet exercitationem reprehenderit libero, est quis voluptas mollitia aliquid corporis vitae nemo itaque officia velit perferendis in illo? Maxime quas doloribus libero consequatur, fugiat nostrum, dolore repellendus similique rerum blanditiis incidunt nulla reiciendis dicta doloremque a illum laudantium officiis aut optio at quia ea, facere aliquid? Dicta culpa voluptate est harum sunt necessitatibus delectus distinctio, praesentium obcaecati atque adipisci? Autem amet nulla impedit, dolor modi nisi praesentium, quibusdam quos numquam repudiandae libero omnis. Eligendi exercitationem est commodi, ea animi quisquam vitae, voluptatum reiciendis sapiente minima veritatis tempore quis molestias dolorum reprehenderit? Quae consectetur itaque dicta explicabo tenetur maxime libero facere? Cumque neque dolore voluptates eos dolorem perferendis vitae maiores nobis sunt laboriosam aliquam voluptas et ullam placeat commodi tempora reprehenderit impedit quidem quo dolorum assumenda, similique inventore eligendi voluptatibus! Magni iste saepe ratione repellendus possimus voluptate, velit, doloribus laboriosam cumque perferendis omnis atque quisquam pariatur molestiae illo quae deleniti fugiat libero reprehenderit quos ad odit ex. Unde ad dolorem fuga obcaecati optio dolores odio consequatur necessitatibus dicta hic! Commodi iusto sequi deleniti maiores consequuntur dolorum qui necessitatibus cupiditate ex vel vitae, quam a soluta neque iste natus optio ab fuga reiciendis ducimus. Repudiandae, nulla sit! Iste, atque neque amet a qui fugit eligendi doloribus corporis ut, eaque officia nobis animi assumenda, labore nihil provident repellendus? Laborum sed minus consectetur alias suscipit placeat! Natus expedita itaque odit dolor, ipsum, sunt accusamus quia explicabo praesentium eius ut aspernatur nobis voluptatem quod laudantium quae quam nesciunt doloribus! Illum culpa aliquid ipsam obcaecati esse quas, error mollitia impedit doloribus quasi dolorum sapiente corporis possimus similique laborum, praesentium et voluptatibus sequi velit reiciendis ipsa expedita? Esse in nisi voluptates, architecto inventore, harum laboriosam, laborum deserunt perspiciatis officiis maxime aspernatur hic asperiores dolor voluptate id accusamus. Expedita dicta sit id, tenetur aliquam, repellat temporibus illum similique quo praesentium mollitia fuga odit provident aspernatur maiores voluptatum. Illum laboriosam itaque cupiditate dolore omnis beatae pariatur aliquam officia deserunt modi dicta nihil mollitia eos deleniti voluptate excepturi laudantium, molestiae cum ab labore maxime sequi ipsum nesciunt velit. Odit voluptate minima facere eveniet sapiente, minus laudantium, iste, porro non totam aut. Eaque nemo amet, aut culpa, alias cum praesentium aperiam tempore deserunt est distinctio, aspernatur repudiandae itaque fuga numquam quasi. Minus, earum! Enim, in, explicabo nemo doloribus eos repellendus, autem quaerat quasi dolores harum totam ullam? Rerum at, aliquid inventore ullam commodi vitae quo in eveniet? Sit quas tenetur voluptatum itaque earum at pariatur voluptates, in ut blanditiis molestias, provident id perspiciatis voluptatibus laborum sequi excepturi doloribus culpa quae veritatis quis possimus sed nihil voluptas. Similique, nihil perspiciatis? Earum culpa quam, modi quisquam veritatis blanditiis. Eos ad itaque corporis necessitatibus rem perspiciatis perferendis, voluptatem ab voluptatibus in illo libero. Assumenda molestiae doloribus eos nobis, itaque aspernatur dolorum asperiores quis natus perspiciatis! Sint natus ut neque sequi ea itaque recusandae consequuntur, sunt tempore corporis, reiciendis obcaecati cumque ducimus quas ratione dolor maxime necessitatibus.
+            </main>
+
+            <aside>
+                AD
+            </aside>
+        </section>
+
+        <footer>
+            <a href="https://opentutorials.org/course/1">홈페이지</a>
+        </footer>
+    </div>
+</body>
+</html>

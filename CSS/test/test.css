@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 100px;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  vertical-align: sub;
+  text-align: center;
+  border: 1px solid black;
+  position: relative;
+}
+
+.box:after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  top: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+ul li:first-child::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+
+  width: 2px;
+  height: 15px;
+  background-color: #222;
+}

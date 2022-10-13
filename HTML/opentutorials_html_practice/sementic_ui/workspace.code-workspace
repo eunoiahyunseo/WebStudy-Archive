@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "font",
+			"path": "../../../../../../Downloads/fontello-d54cb529/font"
+		},
+		{
+			"name": "opentutorials_html_practice",
+			"path": ".."
+		},
+		{
+			"name": "css",
+			"path": "../../../../../../Downloads/fontello-d54cb529/css"
+		}
+	],
+	"settings": {
+		"languageStylus.useSeparator": true,
+		"languageStylus.useBuiltinFunctions": true,
+		"liveServer.settings.multiRootWorkspaceName": "opentutorials_html_practice"
+	}
+}

@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Pug Template
+    body 
+        .divSample Hello World!
+        button(type="submit") submit
+        p 
+            | 안녕하세요
+            | 여러 줄을 입력합니다
+            br
+            | 태그도 중간에 넣을 수 있습니다.
+    
+    h1=title 
+    p Welcome to #{title}
+    button(class=title, type="submit") submit 
+    input(placeholder=title + ' practice')
+
+    - const node = 'Node.js'
+    - const js = 'JavaScript'
+    p #{node} and #{js}
+
+    p= `<strong>Escape</strong>`
+    p!= `<strong>Escape</strong>`
+
+    ul
+        each fruit, index in ['apple', 'pear', 'orange', 'banana', 'peach']
+            li= (index + 1) + '번째 ' + fruit
+
+
+    - const fruit = 'banana'
+    
+    case fruit 
+        when 'apple'
+            p this is apple 
+        when 'banana'
+            p this is banana
+
+    include header 
+
+    main
+        h1 main file 
+        p other file could include in this pug file 
+        
+    include footer
+    
